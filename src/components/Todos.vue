@@ -1,6 +1,7 @@
 <template>
   <div class="todos">
   <div class="page-header"><h1>Users TODOs</h1></div>
+    <input class="form-control" placeholder="Enter Name" v-model="filterInput">
     <table class="table table-striped">
       <thead>
         <tr>
@@ -14,7 +15,7 @@
         </tr>
       </thead>
       <tbody>
-      <tr v-for="user in users">
+      <tr v-for="user in filterBy(users,filterInput)">
         <td>{{user.name}}</td>
         <td>{{user.username}}</td>
         <td>{{user.email}}</td>
@@ -33,7 +34,8 @@ export default {
   name: 'todos',
   data () {
     return {
-      users:[]
+      users:[],
+      filterInput:''
     }
   },
   methods:{
@@ -42,6 +44,12 @@ export default {
         .then(function(response){
           this.users=response.body;
         });
+    },
+    filterBy(list, value){
+      value = value.charAt(0).toUpperCase()+value.slice(1);
+      return list.filter(function(user){
+       return user.name.indexOf(value)>-1;
+      });
     }
   },
   created:function(){

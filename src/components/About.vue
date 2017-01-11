@@ -2,7 +2,7 @@
     <div class="about">
         <div class="jumbotron">
             <h1>Some Manager</h1>
-            <p>I don't know what is purpose of this app but i'm just drilling Vue.js</p>
+            <p>I don't know what is the purpose of this app but I'm just drilling Vue.js</p>
         </div>
         <div class=row>
             <div class="col-md-3 col-md-offset-3"><img src="../assets/logo.png"></div>

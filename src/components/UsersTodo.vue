@@ -1,6 +1,6 @@
 <template>
     <div class="about">
-        <div class="page-header"><h1>User Todos</h1></div>
+        <div class="page-header"><h1>{{user.name}} Todos</h1></div>
 
             <div class="alert alert-success" v-for="todo in todos" v-if="todo.completed">
                 <a class="close" v-on:click="deleteTodo(todo.id,todo.userId)"><i class="fa fa-times" aria-hidden="true"></i></a>
@@ -19,6 +19,7 @@ export default {
   name: 'userstodo',
   data () {
     return {
+        user:[],
         todos:[]
     }
   },
@@ -34,9 +35,16 @@ export default {
         .then(function(){
             this.$router.push({path:'/user/'+userId});
         });
+    },
+    getUser(id){
+        this.$http.get('https://jsonplaceholder.typicode.com/users/'+id)
+        .then(function(response){
+            this.user=response.body;
+        });
     }
   },
   created:function(){
+    this.getUser(this.$route.params.id);
     this.showTodos(this.$route.params.id);
   }
 }

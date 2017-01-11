@@ -10,6 +10,7 @@
           <th>Phone</th>
           <th>Website</th>
           <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -20,6 +21,7 @@
         <td>{{user.phone}}</td>
         <td>{{user.website}}</td>
         <td><router-link class="fa fa-list" aria-hidden="true" v-bind:to="'/user/'+user.id"></router-link></td>
+        <td><router-link class="fa fa-newspaper-o" aria-hidden="true" v-bind:to="'/posts/'+user.id"></router-link></td>
       </tr>
       </tbody>
     </table>

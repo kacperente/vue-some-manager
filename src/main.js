@@ -6,6 +6,7 @@ import VueRouter from 'vue-router'
 import vueResource from 'vue-resource'
 import Todos from './components/Todos'
 import UsersTodo from './components/UsersTodo'
+import UsersPosts from './components/UsersPosts'
 import About from './components/About'
 
 
@@ -18,8 +19,8 @@ const router = new VueRouter({
   routes: [
     {path: '/',component:Todos},
     {path: '/about',component:About},
-    {path: '/user/:id',component:UsersTodo}
-
+    {path: '/user/:id',component:UsersTodo},
+    {path: '/posts/:id',component:UsersPosts}
   ]
 
 })
@@ -37,11 +38,11 @@ new Vue({
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">TODO|Manager</a>
+          <router-link class="navbar-brand" to="/">Some Manager</router-link>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><router-link to="/">TODOS</router-link></li>
+            <li><router-link to="/">Users</router-link></li>
             <li><router-link to="/about">About</router-link></li>
           </ul>
         </div><!--/.nav-collapse -->

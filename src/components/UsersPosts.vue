@@ -6,7 +6,6 @@
             <div class="panel-body">{{post.body}}</div>
             <div class="panel-footer">
                 <i class="fa fa-trash" v-on:click="deletePost(post.id,post.userId)"></i>
-                <router-link class="fa fa-edit" aria-hidden="true" v-bind:to="'/edit/'+post.id+'/user/'+post.userId"></router-link>
             </div>
         </div>
     </div>

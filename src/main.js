@@ -8,6 +8,7 @@ import Todos from './components/Todos'
 import UsersTodo from './components/UsersTodo'
 import UsersPosts from './components/UsersPosts'
 import Albums from './components/Albums'
+import Photos from './components/Photos'
 import About from './components/About'
 
 
@@ -22,7 +23,8 @@ const router = new VueRouter({
     {path: '/about',component:About},
     {path: '/user/:id',component:UsersTodo},
     {path: '/posts/:id',component:UsersPosts},
-    {path: '/albums/:userId',component:Albums}
+    {path: '/albums/:userId',component:Albums},
+    {path: '/photos/:albumId',component:Photos}
   ]
 
 })

@@ -1,11 +1,11 @@
 <template>
         <div class="albums">
-            <div class="page-header"><h1>{{user.name}} album</h1></div>
+            <div class="page-header"><h1>{{user.name}}'s albums</h1></div>
             <ul class="albums-list">
                 <li class="album well" v-for="album in albums">
                     <img src="../assets/empty-album.png" alt="Nature" style="width:100%">
                     <div class="caption">
-                        <router-link class="album-title" v-bind:to="'/album/'+user.id">{{album.title}}</router-link>
+                        <router-link class="album-title" v-bind:to="'/photos/'+album.id">{{album.title}}</router-link>
                     </div>
                 </li>
             </ul>

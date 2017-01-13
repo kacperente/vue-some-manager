@@ -1,7 +1,9 @@
 <template>
   <div class="todos">
-  <div class="page-header"><h1>Users TODOs</h1></div>
-    <input class="form-control" placeholder="Enter Name" v-model="filterInput">
+  <div class="page-header"><h1>Users</h1></div>
+    <div class="form-group">
+            <input class="form-control" placeholder="Search by name" v-model="filterInput">
+    </div>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -10,6 +12,7 @@
           <th>Email</th>
           <th>Phone</th>
           <th>Website</th>
+          <th></th>
           <th></th>
           <th></th>
         </tr>
@@ -23,6 +26,7 @@
         <td>{{user.website}}</td>
         <td><router-link class="fa fa-list" aria-hidden="true" v-bind:to="'/user/'+user.id"></router-link></td>
         <td><router-link class="fa fa-newspaper-o" aria-hidden="true" v-bind:to="'/posts/'+user.id"></router-link></td>
+        <td><router-link class="fa fa-picture-o" aria-hidden="true" v-bind:to="'/albums/'+user.id"></router-link></td>
       </tr>
       </tbody>
     </table>

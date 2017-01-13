@@ -7,6 +7,7 @@ import vueResource from 'vue-resource'
 import Todos from './components/Todos'
 import UsersTodo from './components/UsersTodo'
 import UsersPosts from './components/UsersPosts'
+import Albums from './components/Albums'
 import About from './components/About'
 
 
@@ -20,7 +21,8 @@ const router = new VueRouter({
     {path: '/',component:Todos},
     {path: '/about',component:About},
     {path: '/user/:id',component:UsersTodo},
-    {path: '/posts/:id',component:UsersPosts}
+    {path: '/posts/:id',component:UsersPosts},
+    {path: '/albums/:userId',component:Albums}
   ]
 
 })

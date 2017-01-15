@@ -2,7 +2,7 @@
     <div class="photos">
         <ul class="photos-list">
             <li class="photo" v-for="photo in photos">
-                <img :src="photo.thumbnailUrl" @click="showModal(photo.url)">
+                <img :src="photo.thumbnailUrl" @click="showModal(photo.url,photo.title)">
             </li>
         </ul>
 
@@ -10,7 +10,8 @@
             <div class="modal-mask" v-if="show" @click="show=false">
                 <div class="modal-wrapper">
                     <div class="modal-container">
-                        <img v-bind:src="photoUrl"/>
+                        <img :src="photoUrl"/>
+                        <div class="title">{{photoTitle}}</div>
                     </div>
                 </div>
             </div>
@@ -27,7 +28,8 @@ export default {
         photos:[],
         user:'',
         show:false,
-        photoUrl:''
+        photoUrl:'',
+        photoTitle:''
     }
   },
   methods:{
@@ -37,8 +39,9 @@ export default {
               this.photos=response.body;
             });
        },
-       showModal(url){
+       showModal(url,title){
         this.photoUrl=url;
+        this.photoTitle=title;
         this.show=true;
        }
   },
@@ -89,6 +92,10 @@ export default {
   box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
   transition: all .3s ease;
   font-family: Helvetica, Arial, sans-serif;
+}
+.title{
+    padding-top:20px;
+    text-align:center;
 }
 .modal-enter {
   opacity: 0;
